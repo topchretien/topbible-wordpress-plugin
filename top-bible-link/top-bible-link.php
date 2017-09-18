@@ -16,6 +16,12 @@ class Top_Bible_Link_Class {
 
 		if ( is_admin() ) {
 			add_action( 'init', array(  $this, 'setup_topBibleLink_plugin' ) );
+			add_action( 'admin_enqueue_scripts', $this->marshal( 'add_scripts' ) );
+			// Adding the templates to the post.php and post-new.php only as that's the only place
+			// our meta box is added in this plugin.  You can also use the wp-footer action if you need
+			// the templates globally.
+			add_action( 'admin_footer-post-new.php', $this->marshal( 'add_templates' ) );
+			add_action( 'admin_footer-post.php', $this->marshal( 'add_templates' ) );
 		}
 
 		
@@ -73,15 +79,20 @@ class Top_Bible_Link_Class {
 		return $buttons;
 	}
 
+	public function add_scripts( $hook ) {
+		if ( $hook === 'post.php' || $hook === 'post-new.php' ) {
+			$base = plugin_dir_url( __FILE__ );
+			wp_enqueue_style( 'backbone_modal', $base . 'modal.css' );
+		}
+	}
+
+	public function add_templates() {
+		include 'modal.php';
+	}
+
+	public function marshal( $method_name ) {
+		return array( &$this, $method_name );
+	}
 }
 
 $top_bible_link_class = new Top_Bible_Link_Class;
-
-
-
-
-    
-
-
-
-?>
