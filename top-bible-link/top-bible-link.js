@@ -29,7 +29,7 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 			"click .backbone_modal-close": "closeModal",
 			"click #btn-cancel": "closeModal",
 			"click #btn-ok": "saveModal",
-			"click #btn-search": "searchModal",
+			"keyup #userSearchText": "searchModal",
 			"click .navigation-bar a": "doNothing"
 		},
 
@@ -93,7 +93,7 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 			}
 
 			// Handle any attempt to move focus out of the modal.
-			jQuery( document ).on( "focusin", this.preserveFocus );
+			//jQuery( document ).on( "focusin", this.preserveFocus );
 
 			// set overflow to "hidden" on the body so that it ignores any scroll events while the modal is active
 			// and append the modal to the body.
@@ -102,7 +102,9 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 
 			// Set focus on the modal to prevent accidental actions in the underlying page
 			// Not strictly necessary, but nice to do.
-			this.$el.focus();
+			setTimeout(function(){
+				jQuery('#userSearchText').focus();
+			}, 0);
 		},
 
 		/**
@@ -111,7 +113,7 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 		 */
 		preserveFocus: function ( e ) {
 			"use strict";
-			if ( this.$el[0] !== e.target && ! this.$el.has( e.target ).length ) {
+			if ( this.$el[0] !== e.target && ! this.$el.has( e.target ).length) {
 				this.$el.focus();
 			}
 		},
@@ -197,13 +199,13 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 			      			document.getElementById('resultSearch').innerHTML = "<p>"+result+"</p>";
 			      		} else {
 			      			console.debug( 'Empty answer from API...' );
-			      			document.getElementById('resultSearch').innerHTML = "<p>Can't find anything</p>";
+			      			document.getElementById('resultSearch').innerHTML = "<p>Je n'ai rien trouvé...</p>";
 			      			return;
 			      		}
 
 			      	} else {
 			      		console.debug( 'No answer from API...' );
-			      		document.getElementById('resultSearch').innerHTML = "<p>Can't find anything</p>";
+			      		document.getElementById('resultSearch').innerHTML = "<p>Pas de réponse du serveur...</p>";
 			      		return;
 			      	}
 			      	
@@ -211,7 +213,7 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 
 			   error: function() {
 			   		console.debug( 'Can\'t connect to the API...' );
-			   		document.getElementById('resultSearch').innerHTML = "<p>Can't find anything</p>";
+			   		document.getElementById('resultSearch').innerHTML = "<p>Erreur de connexion au serveur...</p>";
 			   		return;
 			   } 
 
@@ -254,7 +256,7 @@ tbleditor.backbone_modal.Application = Backbone.View.extend(
 
 		// Add Button to Visual Editor Toolbar
 		editor.addButton('top_bible_link_class', {
-			title: 'Insert Link to TopBible',
+			title: 'Insérer un lien vers TopBible',
 			cmd: 'top_bible_link_class',
 			image: url + '/link.png',
 		});	

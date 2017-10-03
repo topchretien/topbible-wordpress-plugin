@@ -156,18 +156,28 @@
 	height: 150%;
 }
 
-.backbone_modal-main textarea {
+.backbone_modal-main #userSearchText {
 	outline: none;
 	overflow: auto;
 	width:100%;
 	margin-bottom: 10px;
 }
 
+#topbible-search-article {
+	position: absolute;
+	top: 80px;
+	bottom: 50px;
+	overflow-y: auto;
+}
 #resultSearch {
-	max-height: 500px;
-	overflow:auto;
 	margin-top: 10px;
-	
+}
+#resultSearch h3 {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+#resultSearch p {
+    margin: 0;
 }
 
 .backbone_modal-main ul {
@@ -176,7 +186,7 @@
 }
 
 .backbone_modal-main li {
-  padding: 10px 10px 10px 10px;
+  padding: 5px 10px;
   overflow: auto;
 }
  
@@ -185,6 +195,6 @@
   cursor: pointer;
 }
 
-.backbone_modal-main .selected {
-  background: #eee;
+.backbone_modal-main li.selected {
+  background: #ddd;
 }

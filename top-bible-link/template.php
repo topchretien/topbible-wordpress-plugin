@@ -24,36 +24,19 @@
 		<div class="backbone_modal-content">
 
 			<section class="backbone_modal-main" role="main">
-				<header><h1><?php echo __( 'TopBible Link Editor', 'backbone_modal' ); ?></h1></header>
-
-
-
-				<article>
-
-				<p>
-				<?php echo __( 'Choose a reference or a part of a verse and click on Search. If there is multiple results, choose the one you want and click on Add.', 'backbone_modal' ); ?>
-				</p>
-
-				<textarea id="userSearchText" placeholder="<?php echo __( 'Enter your Bible reference or your passage', 'backbone_modal' ); ?>"></textarea>
-
-				<div class="inner text-right">
-						<button id="btn-search"
-						        class="button button-primary button-large"><?php echo __( 'Search', 'backbone_modal' ); ?></button>
-				</div>
-
-				<div id='resultSearch'>
-
-				</div>
-
-
+				<header><h1><?php echo __( 'Insertion de lien TopBible', 'backbone_modal' ); ?></h1>
+					<input type="text" id="userSearchText" placeholder="<?php echo __( 'Tapez une référence ou des mots clés... Jean 3.16, Abraham et Isaac...', 'backbone_modal' ); ?>" autofocus class="topbible-search-input">
+				</header>
+				<article id="topbible-search-article">
+					<div><?php echo __( 'Une fois la recherche effectuée, sélectionnez le ou les versets qui vous intéressent et cliquez sur “Insérer”.', 'backbone_modal' ); ?></div>
+					<div id='resultSearch'></div>
 				</article>
-
 				<footer>
 					<div class="inner text-right">
 						<button id="btn-cancel"
-						        class="button button-large"><?php echo __( 'Cancel', 'backbone_modal' ); ?></button>
+						        class="button button-large"><?php echo __( 'Annuler', 'backbone_modal' ); ?></button>
 						<button id="btn-ok"
-						        class="button button-primary button-large"><?php echo __( 'Add', 'backbone_modal' ); ?></button>
+						        class="button button-primary button-large"><?php echo __( 'Insérer', 'backbone_modal' ); ?></button>
 					</div>
 				</footer>
 			</section>
