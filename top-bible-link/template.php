@@ -15,27 +15,45 @@
  * Add content to ".backbone_modal-main article"
  */
 ?>
-<script type="text/html" id='tmpl-aut0poietic-modal-window'>
+<script type="text/html" id='tmpl-tbleditor-modal-window'>
 	<div class="backbone_modal">
 		<a class="backbone_modal-close dashicons dashicons-no" href="#"
 		   title="<?php echo __( 'Close', 'backbone_modal' ); ?>"><span
 				class="screen-reader-text"><?php echo __( 'Close', 'backbone_modal' ); ?></span></a>
 
 		<div class="backbone_modal-content">
-			<div class="navigation-bar">
-				<nav>
-					<ul></ul>
-				</nav>
-			</div>
+
 			<section class="backbone_modal-main" role="main">
-				<header><h1><?php echo __( 'Backbone Modal', 'backbone_modal' ); ?></h1></header>
-				<article></article>
+				<header><h1><?php echo __( 'TopBible Link Editor', 'backbone_modal' ); ?></h1></header>
+
+
+
+				<article>
+
+				<p>
+				<?php echo __( 'Choose a reference or a part of a verse and click on Search. If there is multiple results, choose the one you want and click on Add.', 'backbone_modal' ); ?>
+				</p>
+
+				<textarea id="userSearchText" placeholder="<?php echo __( 'Enter your Bible reference or your passage', 'backbone_modal' ); ?>"></textarea>
+
+				<div class="inner text-right">
+						<button id="btn-search"
+						        class="button button-primary button-large"><?php echo __( 'Search', 'backbone_modal' ); ?></button>
+				</div>
+
+				<div id='resultSearch'>
+
+				</div>
+
+
+				</article>
+
 				<footer>
 					<div class="inner text-right">
 						<button id="btn-cancel"
 						        class="button button-large"><?php echo __( 'Cancel', 'backbone_modal' ); ?></button>
 						<button id="btn-ok"
-						        class="button button-primary button-large"><?php echo __( 'Save &amp; Continue', 'backbone_modal' ); ?></button>
+						        class="button button-primary button-large"><?php echo __( 'Add', 'backbone_modal' ); ?></button>
 					</div>
 				</footer>
 			</section>
@@ -48,7 +66,7 @@
  * The Modal Backdrop
  */
 ?>
-<script type="text/html" id='tmpl-aut0poietic-modal-backdrop'>
+<script type="text/html" id='tmpl-tbleditor-modal-backdrop'>
 	<div class="backbone_modal-backdrop">&nbsp;</div>
 </script>
 <?php
@@ -56,7 +74,7 @@
  * Base template for a navigation-bar menu item ( and the only *real* template in the file ).
  */
 ?>
-<script type="text/html" id='tmpl-aut0poietic-modal-menu-item'>
+<script type="text/html" id='tmpl-tbleditor-modal-menu-item'>
 	<li class="nav-item"><a href="{{ data.url }}">{{ data.name }}</a></li>
 </script>
 <?php
@@ -64,7 +82,7 @@
  * A menu item separator.
  */
 ?>
-<script type="text/html" id='tmpl-aut0poietic-modal-menu-item-separator'>
+<script type="text/html" id='tmpl-tbleditor-modal-menu-item-separator'>
 	<li class="separator">&nbsp;</li>
 </script>
 

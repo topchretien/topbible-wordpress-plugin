@@ -1,7 +1,4 @@
-/*
-	The styles below were ripped from the Media Modal in WordPress 3.5
-	~~ Thanks for building a beautiful Modal UI ( that I could steal )
-*/
+
 .backbone_modal {
 	position: fixed;
 	top: 30px;
@@ -108,7 +105,7 @@
 	background-color: rgba(0, 0, 0, 0.04);
 }
 .backbone_modal-main {
-	position: absolute;
+/*	position: absolute;*/
 	top: 0;
 	left: 200px;
 	right: 0;
@@ -159,4 +156,35 @@
 	height: 150%;
 }
 
+.backbone_modal-main textarea {
+	outline: none;
+	overflow: auto;
+	width:100%;
+	margin-bottom: 10px;
+}
 
+#resultSearch {
+	max-height: 500px;
+	overflow:auto;
+	margin-top: 10px;
+	
+}
+
+.backbone_modal-main ul {
+  list-style-type: none;
+  overflow: auto;
+}
+
+.backbone_modal-main li {
+  padding: 10px 10px 10px 10px;
+  overflow: auto;
+}
+ 
+.backbone_modal-main li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.backbone_modal-main .selected {
+  background: #eee;
+}

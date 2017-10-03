@@ -8,6 +8,20 @@
  */
 
 class Top_Bible_Link_Class {
+
+	/**
+	 * Static Singleton
+	 * @action plugins_loaded
+	 * @return Top_Bible_Link_Class
+	 * @static
+	 */
+	public static function init() {
+		static $top_bible_link_class = false;
+		if ( ! $top_bible_link_class ) {
+					$top_bible_link_class = new Top_Bible_Link_Class;
+		}
+		return $top_bible_link_class;
+	}
 	
 	/**
 	* Constructor. Called when the plugin is initialised.
@@ -82,12 +96,22 @@ class Top_Bible_Link_Class {
 	public function add_scripts( $hook ) {
 		if ( $hook === 'post.php' || $hook === 'post-new.php' ) {
 			$base = plugin_dir_url( __FILE__ );
-			wp_enqueue_style( 'backbone_modal', $base . 'modal.css' );
+			wp_enqueue_script( 'backbone_modal', $base . 'top-bible-link.js', array(
+				'jquery',
+				'backbone',
+				'underscore',
+				'wp-util'
+			) );
+			// wp_localize_script( 'backbone_modal', 'tbleditor_backbone_modal_l10n',
+			// 	array(
+			// 		'replace_message' => __( 'This is dummy content. You should add something here.', 'backbone_modal' )
+			// 	) );
+			wp_enqueue_style( 'backbone_modal', $base . 'template.css' );
 		}
 	}
 
 	public function add_templates() {
-		include 'modal.php';
+		include 'template.php';
 	}
 
 	public function marshal( $method_name ) {
@@ -95,4 +119,7 @@ class Top_Bible_Link_Class {
 	}
 }
 
-$top_bible_link_class = new Top_Bible_Link_Class;
+/**
+ * Instantiates the plugin singleton during plugins_loaded action.
+ */
+add_action( 'plugins_loaded', array( 'Top_Bible_Link_Class', 'init' ) );
