@@ -25,7 +25,24 @@
 
 			<section class="backbone_modal-main" role="main">
 				<header><h1><?php echo __( 'Insertion de lien TopBible', 'backbone_modal' ); ?></h1>
-					<input type="text" id="userSearchText" placeholder="<?php echo __( 'Tapez une référence ou des mots clés... Jean 3.16, Abraham et Isaac...', 'backbone_modal' ); ?>" autofocus class="topbible-search-input">
+                <table style="width:100%;">
+                <tr>
+                <td style="vertical-align:top;">
+                    <select id="userVersionSelect">
+                        <option value="LSG">Segond 1910</option>
+                        <option value="S21">Segond 21</option>
+                        <option value="SEM">Semeur</option>
+                        <option value="PVI">Parole Vivante</option>
+                        <option value="DRB">Darby</option>
+                        <option value="MAR">Martin</option>
+                        <option value="OST">Ostervald</option>
+                        <option value="ORI">Hébreu / Grec - Texte original</option>
+                        <option value="WEB">World English Bible</option>
+                    </select>
+                </td>
+                <td style="width:100%;vertical-align:top;padding-top:3px;"><input type="text" id="userSearchText" placeholder="<?php echo __( 'Tapez une référence ou des mots clés... Jean 3.16, Abraham et Isaac...', 'backbone_modal' ); ?>" autofocus class="topbible-search-input"></td>
+                </tr>
+                </table>
 				</header>
 				<article id="topbible-search-article">
 					<div><?php echo __( 'Une fois la recherche effectuée, sélectionnez le ou les versets qui vous intéressent et cliquez sur “Insérer”.', 'backbone_modal' ); ?></div>
@@ -35,8 +52,10 @@
 					<div class="inner text-right">
 						<button id="btn-cancel"
 						        class="button button-large"><?php echo __( 'Annuler', 'backbone_modal' ); ?></button>
+						<button id="btn-ok-ref"
+						        class="button button-large"><?php echo __( 'Insérer la référence', 'backbone_modal' ); ?></button>
 						<button id="btn-ok"
-						        class="button button-primary button-large"><?php echo __( 'Insérer', 'backbone_modal' ); ?></button>
+						        class="button button-primary button-large"><?php echo __( 'Insérer la référence avec le texte', 'backbone_modal' ); ?></button>
 					</div>
 				</footer>
 			</section>

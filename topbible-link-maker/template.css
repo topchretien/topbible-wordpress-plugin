@@ -188,13 +188,34 @@
 .backbone_modal-main li {
   padding: 5px 10px;
   overflow: auto;
+  border-bottom: solid 1px #CCC;
 }
  
-.backbone_modal-main li:hover {
+.backbone_modal-main li > div {
+    float: left;
+}
+.backbone_modal-main li > div > a{
+    display: block;
+    text-align: right;
+    border: solid 1px grey;
+    border-radius: 5px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    height: 24px;
+    background: #EEF;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.backbone_modal-main li > div > a{
+    background: white;
+}
+
+.backbone_modal-main li label:hover {
   background: #eee;
   cursor: pointer;
 }
 
-.backbone_modal-main li.selected {
+.backbone_modal-main li label.selected {
   background: #ddd;
 }
