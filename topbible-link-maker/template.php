@@ -43,9 +43,92 @@
                 <td style="width:100%;vertical-align:top;padding-top:3px;"><input type="text" id="userSearchText" placeholder="<?php echo __( 'Tapez une référence ou des mots clés... Jean 3.16, Abraham et Isaac...', 'backbone_modal' ); ?>" autofocus class="topbible-search-input"></td>
                 </tr>
                 </table>
+                <table><tr>
+                    <td>
+                        <select id="userBookSelect">
+                            <option value="">-- Choisissez un livre --</option>
+                            <option value="1">Genèse</option>
+                            <option value="2">Exode</option>
+                            <option value="3">Lévitique</option>
+                            <option value="4">Nombres</option>
+                            <option value="5">Deutéronome</option>
+                            <option value="6">Josué</option>
+                            <option value="7">Juges</option>
+                            <option value="8">Ruth</option>
+                            <option value="9">1 Samuel</option>
+                            <option value="10">2 Samuel</option>
+                            <option value="11">1 Rois</option>
+                            <option value="12">2 Rois</option>
+                            <option value="13">1 Chroniques</option>
+                            <option value="14">2 Chroniques</option>
+                            <option value="15">Esdras</option>
+                            <option value="16">Néhémie</option>
+                            <option value="17">Esther</option>
+                            <option value="18">Job</option>
+                            <option value="19">Psaumes</option>
+                            <option value="20">Proverbes</option>
+                            <option value="21">Ecclésiaste</option>
+                            <option value="22">Cantique</option>
+                            <option value="23">Esaïe</option>
+                            <option value="24">Jérémie</option>
+                            <option value="25">Lamentations</option>
+                            <option value="26">Ezéchiel</option>
+                            <option value="27">Daniel</option>
+                            <option value="28">Osée</option>
+                            <option value="29">Joël</option>
+                            <option value="30">Amos</option>
+                            <option value="31">Abdias</option>
+                            <option value="32">Jonas</option>
+                            <option value="33">Michée</option>
+                            <option value="34">Nahum</option>
+                            <option value="35">Habacuc</option>
+                            <option value="36">Sophonie</option>
+                            <option value="37">Aggée</option>
+                            <option value="38">Zacharie</option>
+                            <option value="39">Malachie</option>
+                            <option value="40">Matthieu</option>
+                            <option value="41">Marc</option>
+                            <option value="42">Luc</option>
+                            <option value="43">Jean</option>
+                            <option value="44">Actes</option>
+                            <option value="45">Romains</option>
+                            <option value="46">1 Corinthiens</option>
+                            <option value="47">2 Corinthiens</option>
+                            <option value="48">Galates</option>
+                            <option value="49">Ephésiens</option>
+                            <option value="50">Philippiens</option>
+                            <option value="51">Colossiens</option>
+                            <option value="52">1 Thessaloniciens</option>
+                            <option value="53">2 Thessaloniciens</option>
+                            <option value="54">1 Timothée</option>
+                            <option value="55">2 Timothée</option>
+                            <option value="56">Tite</option>
+                            <option value="57">Philémon</option>
+                            <option value="58">Hébreux</option>
+                            <option value="59">Jacques</option>
+                            <option value="60">1 Pierre</option>
+                            <option value="61">2 Pierre</option>
+                            <option value="62">1 Jean</option>
+                            <option value="63">2 Jean</option>
+                            <option value="64">3 Jean</option>
+                            <option value="65">Jude</option>
+                            <option value="66">Apocalypse</option>
+                        </select>
+                        <select id="userChapterSelect" disabled>
+                            <option value="">-- Choisissez un chapitre --</option>
+                        </select>
+                        <select id="userVerseSelect" disabled>
+                            <option value="">-- Choisissez un verset --</option>
+                        </select>
+                        <select id="userToVerseSelect" disabled>
+                            <option value="">-- Choisissez un verset de fin --</option>
+                        </select>
+                    </td>
+
+                </tr></table>
 				</header>
 				<article id="topbible-search-article">
-					<div><?php echo __( 'Une fois la recherche effectuée, sélectionnez le ou les versets qui vous intéressent et cliquez sur “Insérer”.', 'backbone_modal' ); ?></div>
+					<div><?php echo __( 'Une fois la recherche effectuée, cliquez sur un des boutons à gauche du verset pour insérer la référence ou le texte et la référence. Vous pouvez également cocher les cases et utiliser les boutons du bas pour insérer plusieurs références à la fois.', 'backbone_modal' ); ?></div>
 					<div id='resultSearch'></div>
 				</article>
 				<footer>
