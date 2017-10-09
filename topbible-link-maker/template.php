@@ -11,7 +11,7 @@
                 <table style="width:100%;">
                 <tr>
                 <td style="vertical-align:top;">
-                    <select id="userVersionSelect">
+                    <select id="topbible-userVersionSelect">
                         <option value="LSG">Segond 1910</option>
                         <option value="S21">Segond 21</option>
                         <option value="SEM">Semeur</option>
@@ -21,12 +21,12 @@
                         <option value="ORI">Hébreu / Grec - Texte original</option>
                     </select>
                 </td>
-                <td style="width:100%;vertical-align:top;padding-top:3px;"><input type="text" id="userSearchText" placeholder="<?php echo __( 'Tapez une référence ou des mots clés... Jean 3.16, Abraham et Isaac...', 'backbone_modal' ); ?>" autofocus class="topbible-search-input"></td>
+                <td style="width:100%;vertical-align:top;padding-top:3px;"><input type="text" id="topbible-userSearchText" placeholder="<?php echo __( 'Tapez une référence ou des mots clés... Jean 3.16, Abraham et Isaac...', 'backbone_modal' ); ?>" autofocus class="topbible-search-input"></td>
                 </tr>
                 </table>
                 <table><tr>
                     <td>
-                        <select id="userBookSelect">
+                        <select id="topbible-userBookSelect">
                             <option value="">-- Choisissez un livre --</option>
                             <option value="1">Genèse</option>
                             <option value="2">Exode</option>
@@ -95,13 +95,13 @@
                             <option value="65">Jude</option>
                             <option value="66">Apocalypse</option>
                         </select>
-                        <select id="userChapterSelect" disabled>
+                        <select id="topbible-userChapterSelect" disabled>
                             <option value="">-- Choisissez un chapitre --</option>
                         </select>
-                        <select id="userVerseSelect" disabled>
+                        <select id="topbible-userVerseSelect" disabled>
                             <option value="">-- Choisissez un verset --</option>
                         </select>
-                        <select id="userToVerseSelect" disabled>
+                        <select id="topbible-userToVerseSelect" disabled>
                             <option value="">-- Choisissez un verset de fin --</option>
                         </select>
                     </td>
@@ -109,17 +109,17 @@
                 </tr></table>
 				</header>
 				<article id="topbible-search-article">
-					<div id='resultSearch'></div>
+					<div id='topbible-resultSearch'></div>
 				</article>
 				<footer>
 					<div class="inner text-right">
-						<button id="btn-cancel"
+						<button id="topbible-btn-cancel"
 						        class="button button-large"><?php echo __( 'Annuler', 'backbone_modal' ); ?></button>
-						<button id="btn-ok-ref"
+						<button id="topbible-btn-ok-ref"
 						        class="button button-large"><?php echo __( 'Insérer la référence', 'backbone_modal' ); ?></button>
-						<button id="btn-ok"
+						<button id="topbible-btn-ok"
 						        class="button button-large"><?php echo __( 'Insérer la référence avec le texte', 'backbone_modal' ); ?></button>
-						<button id="btn-link"
+						<button id="topbible-btn-link"
 						        class="button button-primary button-large"><?php echo __( 'Poser le lien', 'backbone_modal' ); ?></button>
 					</div>
 				</footer>

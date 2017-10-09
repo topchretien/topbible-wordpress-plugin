@@ -38,16 +38,16 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
     id: "backbone_modal_dialog",
     events: {
         "click .backbone_modal-close": "closeModal",
-        "click #btn-cancel": "closeModal",
-        "click #btn-ok-ref": "saveModalRef",
-        "click #btn-ok": "saveModal",
-        "click #btn-link": "saveLink",
-        "keyup #userSearchText": "searchModal",
-        "change #userVersionSelect": "searchModal",
-        "change #userBookSelect": "bookSelect",
-        "change #userChapterSelect": "chapterSelect",
-        "change #userVerseSelect": "verseSelect",
-        "change #userToVerseSelect": "toVerseSelect",
+        "click #topbible-btn-cancel": "closeModal",
+        "click #topbible-btn-ok-ref": "saveModalRef",
+        "click #topbible-btn-ok": "saveModal",
+        "click #topbible-btn-link": "saveLink",
+        "keyup #topbible-userSearchText": "searchModal",
+        "change #topbible-userVersionSelect": "searchModal",
+        "change #topbible-userBookSelect": "bookSelect",
+        "change #topbible-userChapterSelect": "chapterSelect",
+        "change #topbible-userVerseSelect": "verseSelect",
+        "change #topbible-userToVerseSelect": "toVerseSelect",
         "click .navigation-bar a": "doNothing"
     },
 
@@ -71,7 +71,7 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
     initialize: function () {
         "use strict";
 
-        _.bindAll( this, 'render', 'preserveFocus', 'closeModal', 'saveModal', 'saveModalRef', 'doNothing',
+        _.bindAll( this, 'render', 'closeModal', 'saveModal', 'saveModalRef', 'doNothing',
             'bookSelect', 'chapterSelect', 'verseSelect', 'toVerseSelect', 'saveLink' );
         this.initialize_templates();
         this.render();
@@ -110,17 +110,16 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
 
         // set overflow to "hidden" on the body so that it ignores any scroll events while the modal is active
         // and append the modal to the body.
-        // TODO: this might better be represented as a class "modal-open" rather than a direct style declaration.
         jQuery( "body" ).css( {"overflow": "hidden"} ).append( this.$el );
 
         // Set focus on the modal to prevent accidental actions in the underlying page
         // Not strictly necessary, but nice to do.
         setTimeout(function(){
-            jQuery('#userSearchText').focus();
+            jQuery('#topbible-userSearchText').focus();
             var text = topbible_link_editor.editor.selection.getContent({
                 'format': 'html'
             });
-            jQuery('#userSearchText').val(text).keyup();
+            jQuery('#topbible-userSearchText').val(text).keyup();
         }, 0);
     },
 
@@ -201,8 +200,8 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
      */
     searchModal: function(e) {
         "use strict";
-        var userText = document.getElementById('userSearchText').value;
-        var version = document.getElementById('userVersionSelect').value;
+        var userText = document.getElementById('topbible-userSearchText').value;
+        var version = document.getElementById('topbible-userVersionSelect').value;
 
         if (userText.length === 0) {
             return;
@@ -232,21 +231,21 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
 
                         result = result+"</ul>";
 
-                        document.getElementById('resultSearch').innerHTML = "<p>"+result+"</p>";
+                        document.getElementById('topbible-resultSearch').innerHTML = "<p>"+result+"</p>";
                     } else {
-                        document.getElementById('resultSearch').innerHTML = "<p>Je n'ai rien trouvé...</p>";
+                        document.getElementById('topbible-resultSearch').innerHTML = "<p>Je n'ai rien trouvé...</p>";
                         return;
                     }
 
                 } else {
-                    document.getElementById('resultSearch').innerHTML = "<p>Pas de réponse du serveur...</p>";
+                    document.getElementById('topbible-resultSearch').innerHTML = "<p>Pas de réponse du serveur...</p>";
                     return;
                 }
 
             },
 
             error: function() {
-                document.getElementById('resultSearch').innerHTML = "<p>Erreur de connexion au serveur...</p>";
+                document.getElementById('topbible-resultSearch').innerHTML = "<p>Erreur de connexion au serveur...</p>";
                 return;
             } 
 
@@ -266,7 +265,6 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
     /**
      * Click
      * @param e {object} A jQuery-normalized event object.
-     * @todo You should probably delete this and add your own handlers.
      */
     clickOnSearchList: function ( elm,id ) {
         "use strict";
@@ -280,10 +278,10 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
         }
     },
     computeReference: function() {
-        var book = parseInt(jQuery('#userBookSelect').val());
-        var chapter = parseInt(jQuery('#userChapterSelect').val());
-        var verse = parseInt(jQuery('#userVerseSelect').val());
-        var toverse = parseInt(jQuery('#userToVerseSelect').val());
+        var book = parseInt(jQuery('#topbible-userBookSelect').val());
+        var chapter = parseInt(jQuery('#topbible-userChapterSelect').val());
+        var verse = parseInt(jQuery('#topbible-userVerseSelect').val());
+        var toverse = parseInt(jQuery('#topbible-userToVerseSelect').val());
         var ref = '';
         if (book) {
             ref += topbible_link_editor.BOOKS[book - 1];
@@ -297,15 +295,15 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
                 }
             }
         }
-        jQuery('#userSearchText').val(ref).keyup();
+        jQuery('#topbible-userSearchText').val(ref).keyup();
     },
     toVerseSelect: function() {
         this.computeReference();
     },
     verseSelect: function() {
-        var book = parseInt(jQuery('#userBookSelect').val());
-        var chapter = parseInt(jQuery('#userChapterSelect').val());
-        var verse = parseInt(jQuery('#userVerseSelect').val());
+        var book = parseInt(jQuery('#topbible-userBookSelect').val());
+        var chapter = parseInt(jQuery('#topbible-userChapterSelect').val());
+        var verse = parseInt(jQuery('#topbible-userVerseSelect').val());
         if (verse) {
             book--;
             chapter--;
@@ -314,15 +312,15 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
             for(var i = 1 ; i <= verses ; i++) {
                 options += '<option>' + i + '</option>';
             }
-            jQuery('#userToVerseSelect').html(options).prop('disabled', false);
+            jQuery('#topbible-userToVerseSelect').html(options).prop('disabled', false);
         } else {
-            jQuery('#userToVerseSelect').val(''),prop('disabled', true);
+            jQuery('#topbible-userToVerseSelect').val(''),prop('disabled', true);
         }
         this.computeReference();
     },
     chapterSelect: function() {
-        var book = parseInt(jQuery('#userBookSelect').val());
-        var chapter = parseInt(jQuery('#userChapterSelect').val());
+        var book = parseInt(jQuery('#topbible-userBookSelect').val());
+        var chapter = parseInt(jQuery('#topbible-userChapterSelect').val());
         if (chapter) {
             book--;
             chapter--;
@@ -331,16 +329,16 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
             for(var i = 1 ; i <= verses ; i++) {
                 options += '<option>' + i + '</option>';
             }
-            jQuery('#userVerseSelect').html(options).prop('disabled', false);
-            jQuery('#userToVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userVerseSelect').html(options).prop('disabled', false);
+            jQuery('#topbible-userToVerseSelect').val('').prop('disabled', true);
         } else {
-            jQuery('#userVerseSelect').val('').prop('disabled', true);
-            jQuery('#userToVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userToVerseSelect').val('').prop('disabled', true);
         }
         this.computeReference();
     },
     bookSelect: function() {
-        var book = parseInt(jQuery('#userBookSelect').val());
+        var book = parseInt(jQuery('#topbible-userBookSelect').val());
         if (book) {
             book--;
             var chapters = topbible_link_editor.TOP_BIBLE_CHAPTERS[book].length;
@@ -348,13 +346,13 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
             for(var i = 1 ; i <= chapters ; i++) {
                 options += '<option>' + i + '</option>';
             }
-            jQuery('#userChapterSelect').html(options).prop('disabled', false);
-            jQuery('#userVerseSelect').val('').prop('disabled', true);
-            jQuery('#userToVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userChapterSelect').html(options).prop('disabled', false);
+            jQuery('#topbible-userVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userToVerseSelect').val('').prop('disabled', true);
         } else {
-            jQuery('#userChapterSelect').val('').prop('disabled', true);
-            jQuery('#userVerseSelect').val('').prop('disabled', true);
-            jQuery('#userToVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userChapterSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userVerseSelect').val('').prop('disabled', true);
+            jQuery('#topbible-userToVerseSelect').val('').prop('disabled', true);
         }
         this.computeReference();
     }

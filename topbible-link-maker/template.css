@@ -156,7 +156,7 @@
 	height: 150%;
 }
 
-.backbone_modal-main #userSearchText {
+.backbone_modal-main #topbible-userSearchText {
 	outline: none;
 	overflow: auto;
 	width:100%;
@@ -169,14 +169,14 @@
 	bottom: 50px;
 	overflow-y: auto;
 }
-#resultSearch {
+#topbible-resultSearch {
 	margin-top: 10px;
 }
-#resultSearch h3 {
+#topbible-resultSearch h3 {
     margin: 5px 0;
     font-size: 1.1em;
 }
-#resultSearch p {
+#topbible-resultSearch p {
     margin: 0;
 }
 
