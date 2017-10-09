@@ -1,20 +1,3 @@
-<?php
-/**
- * Backbone Templates
- * This file contains all of the HTML used in our modal and the workflow itself.
- *
- * Each template is wrapped in a script block ( note the type is set to "text/html" ) and given an ID prefixed with
- * 'tmpl'. The wp.template method retrieves the contents of the script block and converts these blocks into compiled
- * templates to be used and reused in your application.
- */
-
-
-/**
- * The Modal Window, including sidebar and content area.
- * Add menu items to ".navigation-bar nav ul"
- * Add content to ".backbone_modal-main article"
- */
-?>
 <script type="text/html" id='tmpl-tbleditor-modal-window'>
 	<div class="backbone_modal">
 		<a class="backbone_modal-close dashicons dashicons-no" href="#"
@@ -126,7 +109,6 @@
                 </tr></table>
 				</header>
 				<article id="topbible-search-article">
-					<div><?php echo __( 'Une fois la recherche effectuée, cliquez sur un des boutons à gauche du verset pour insérer la référence ou le texte et la référence. Vous pouvez également cocher les cases et utiliser les boutons du bas pour insérer plusieurs références à la fois.', 'backbone_modal' ); ?></div>
 					<div id='resultSearch'></div>
 				</article>
 				<footer>
@@ -136,7 +118,9 @@
 						<button id="btn-ok-ref"
 						        class="button button-large"><?php echo __( 'Insérer la référence', 'backbone_modal' ); ?></button>
 						<button id="btn-ok"
-						        class="button button-primary button-large"><?php echo __( 'Insérer la référence avec le texte', 'backbone_modal' ); ?></button>
+						        class="button button-large"><?php echo __( 'Insérer la référence avec le texte', 'backbone_modal' ); ?></button>
+						<button id="btn-link"
+						        class="button button-primary button-large"><?php echo __( 'Poser le lien', 'backbone_modal' ); ?></button>
 					</div>
 				</footer>
 			</section>
@@ -144,28 +128,6 @@
 	</div>
 </script>
 
-<?php
-/**
- * The Modal Backdrop
- */
-?>
 <script type="text/html" id='tmpl-tbleditor-modal-backdrop'>
 	<div class="backbone_modal-backdrop">&nbsp;</div>
 </script>
-<?php
-/**
- * Base template for a navigation-bar menu item ( and the only *real* template in the file ).
- */
-?>
-<script type="text/html" id='tmpl-tbleditor-modal-menu-item'>
-	<li class="nav-item"><a href="{{ data.url }}">{{ data.name }}</a></li>
-</script>
-<?php
-/**
- * A menu item separator.
- */
-?>
-<script type="text/html" id='tmpl-tbleditor-modal-menu-item-separator'>
-	<li class="separator">&nbsp;</li>
-</script>
-
