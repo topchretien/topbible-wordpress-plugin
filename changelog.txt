@@ -1,0 +1,4 @@
+*** WordPress Plugin Template Changelog ***
+
+2017.10.09 - version 1.0.0
+* Initial release
