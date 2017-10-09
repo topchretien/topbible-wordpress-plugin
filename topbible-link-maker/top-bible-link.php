@@ -3,8 +3,8 @@
 /**
  * Plugin Name: Top Bible Link
  * Version: 1.0
- * Author: Loïc Grondin
- * Description: A plugin used to transform a bible reference into a link to TopBible
+ * Author: Loïc Grondin and Marc Ariberti
+ * Description: A plugin used to easily insert Bible verses and add links to TopBible.com
  */
 
 class Top_Bible_Link_Class {

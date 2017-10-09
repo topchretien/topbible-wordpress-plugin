@@ -160,7 +160,7 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
             for (var i = 0; i < elements.length; i++) {
                 textToInsert = textToInsert +
                     elements[i]['text']+
-                    ' (<a class="button" href="' + elements[i]['url'] + '">' + elements[i]['ref'] + '</a>) ';
+                    ' (<a class="button" target="_blank" href="' + elements[i]['url'] + '">' + elements[i]['ref'] + '</a>) ';
             }
         }
 
@@ -172,7 +172,7 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
         var textToInsert = "";
         var elements = this.getSelectedElements();
         if (elements.length !== 0) {
-            tinymce.execCommand('mceInsertLink', false, elements[0]['url']);
+            tinymce.execCommand('mceInsertLink', false, {href: elements[0]['url'], target: '_blank'});
         }
 
         this.closeModal(e);
@@ -184,7 +184,7 @@ topbible_link_editor.backbone_modal.Application = Backbone.View.extend({
         if (elements.length !== 0) {
             for (var i = 0; i < elements.length; i++) {
                 textToInsert = textToInsert +
-                    ' <a class="button" href="' + 
+                    ' <a class="button" target="_blank" href="' + 
                     elements[i]['url'] + '">' + 
                     elements[i]['ref'] + '</a> ';
             }
