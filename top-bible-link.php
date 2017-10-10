@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Top Bible
+ * Plugin Name: TopBible for Wordpress
  * Version: 1.0
  * Author: Loïc Grondin and Marc Ariberti
  * Description: A plugin used to easily insert Bible verses and add links to TopBible.com
